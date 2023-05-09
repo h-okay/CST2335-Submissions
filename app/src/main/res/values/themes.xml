@@ -12,6 +12,9 @@
 
         <!-- Status bar color. -->
         <item name="android:textColor">@color/my_text</item>
+
+        <item name="android:button">@color/button_color</item>
+
     </style>
     <style name="Theme.HakansAndroidLabs" parent="Base.Theme.HakansAndroidLabs" />
 </resources>
