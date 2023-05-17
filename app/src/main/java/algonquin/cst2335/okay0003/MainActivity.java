@@ -26,11 +26,9 @@ public class MainActivity extends AppCompatActivity {
         Button mybutton = variableBinding.mybutton;
         EditText myedit = variableBinding.myedittext;
 
-        mybutton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                String editString = myedit.getText().toString();
-                mytext.setText( "Your edit text has: " + editString);
-            }
-        });
+        if (mybutton != null)
+            String editString = myedit
+            mybutton.setOnClickListener(vw -> mytext.setText("Your edit text has: " + editString));
+
     }
 }
