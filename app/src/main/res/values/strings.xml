@@ -6,4 +6,11 @@
     <string name="button1">Button 1</string>
     <string name="button2">Button 2</string>
     <string name="button3">Button 3</string>
+    <string name="emailLabel">Enter your email address</string>
+    <string name="emailHint">Type email here</string>
+    <string name="passwordLabel">Type your password</string>
+    <string name='loginButton'>Login</string>
+    <string name='callButton'>Call Number</string>
+    <string name='pictureButton'>Change Picture</string>
+    <string name="placeholder">Placeholder</string>
 </resources>

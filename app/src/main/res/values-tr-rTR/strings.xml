@@ -7,4 +7,10 @@
     <string name="button1">Tuş 1</string>
     <string name="button2">Tuş 2</string>
     <string name="button3">Tuş 3</string>
+    <string name="emailLabel">Email adresinizi girin</string>
+    <string name="emailHint">Email girin</string>
+    <string name="passwordLabel">Şifre gırın</string>
+    <string name="loginButton">Giriş</string>
+    <string name="callButton">Arama yap</string>
+    <string name="pictureButton">Foto değiştir</string>
 </resources>
