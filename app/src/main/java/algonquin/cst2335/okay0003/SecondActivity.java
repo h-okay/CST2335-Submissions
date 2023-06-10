@@ -2,17 +2,20 @@ package algonquin.cst2335.okay0003;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -23,7 +26,6 @@ import android.widget.TextView;
 import android.widget.ImageView;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -46,6 +48,18 @@ public class SecondActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    @Override
+    public void onRequestPermissionsResult(
+            int requestCode,
+            @NonNull String[] permissions,
+            @NonNull int[] grantResults
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if ((requestCode == 20) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            startActivity(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +79,6 @@ public class SecondActivity extends AppCompatActivity {
         File file = new File(getFilesDir(), FILENAME);
 
         if (file.exists()) {
-            Log.d("SecondActivity", "HERE");
             Bitmap theImage = BitmapFactory.decodeFile(file.getAbsolutePath());
             profileImage.setImageBitmap(theImage);
         }
@@ -80,7 +93,6 @@ public class SecondActivity extends AppCompatActivity {
             startActivity(call);
         });
 
-        //had to take it out of event listener so it is saved. Otherwise gives STATE error.
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         ActivityResultLauncher<Intent> cameraResult = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -106,8 +118,13 @@ public class SecondActivity extends AppCompatActivity {
         );
 
         changePictureButton.setOnClickListener(click -> {
-            cameraResult.launch(cameraIntent);
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                    cameraResult.launch(cameraIntent);
+                } else {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA}, 20);
+                }
+            }
         });
     }
 }
