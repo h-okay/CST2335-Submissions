@@ -3,4 +3,5 @@
     <string name="app_name">Hakan\'s Android Labs</string>
     <string name="hello_message">Merhaba Dünya!</string>
     <string name="button_message">Ben bir tuşum</string>
+    <string name="password_message">Sifrenizi girin</string>
 </resources>
