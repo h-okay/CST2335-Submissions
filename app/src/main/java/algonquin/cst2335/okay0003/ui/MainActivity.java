@@ -1,4 +1,4 @@
-package algonquin.cst2335.okay0003;
+package algonquin.cst2335.okay0003.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.regex.Pattern;
+
+import algonquin.cst2335.okay0003.R;
 
 /**
  * The main activity of the application that allows users to input a password and

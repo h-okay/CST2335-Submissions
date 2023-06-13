@@ -20,6 +20,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import algonquin.cst2335.okay0003.ui.MainActivity;
+
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {

@@ -12,7 +12,10 @@
         android:theme="@style/Theme.HakansAndroidLabs"
         tools:targetApi="31">
         <activity
-            android:name=".ChatRoom"
+            android:name=".ui.SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ChatRoom"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
