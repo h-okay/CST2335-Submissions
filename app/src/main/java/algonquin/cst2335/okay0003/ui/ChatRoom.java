@@ -150,6 +150,7 @@ public class ChatRoom extends AppCompatActivity {
             FragmentManager fMgr = getSupportFragmentManager();
             FragmentTransaction tx = fMgr.beginTransaction();
             tx.replace(R.id.fragmentLocation, chatFragment); // had to replace so it is refreshed
+            tx.addToBackStack("");
             tx.commit();
         });
     }
